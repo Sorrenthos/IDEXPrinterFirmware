@@ -42,7 +42,7 @@
 #endif
 
 #ifndef FAN_PIN
-  #define FAN_PIN           6
+  #define FAN_PIN           17
 #endif
 
 #include "pins_RAMPS.h"
@@ -117,14 +117,14 @@
 // Heaters / Fans
 //
 #define HEATER_2_PIN       16
-#define HEATER_3_PIN       17
-#define HEATER_4_PIN        4
-#define HEATER_5_PIN        5
-#define HEATER_6_PIN        6
-#define HEATER_7_PIN       11
+#define HEATER_3_PIN       -1
+#define HEATER_4_PIN        -1
+#define HEATER_5_PIN        -1
+#define HEATER_6_PIN        -1
+#define HEATER_7_PIN       -1
 
 #ifndef CONTROLLER_FAN_PIN
-  #define CONTROLLER_FAN_PIN 4   // Pin used for the fan to cool motherboard (-1 to disable)
+  #define CONTROLLER_FAN_PIN -1   // Pin used for the fan to cool motherboard (-1 to disable)
 #endif
 
 // Fans/Water Pump to cool the hotend cool side.
