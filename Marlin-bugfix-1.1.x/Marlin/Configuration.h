@@ -318,7 +318,7 @@
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
 #define TEMP_SENSOR_4 0
-#define TEMP_SENSOR_BED 0
+#define TEMP_SENSOR_BED 1
 #define TEMP_SENSOR_CHAMBER 0
 
 // Dummy thermistor constant temperature readings, for use with 998 and 999
@@ -416,7 +416,7 @@
  * heater. If your configuration is significantly different than this and you don't understand
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
-//#define PIDTEMPBED
+#define PIDTEMPBED
 
 //#define BED_LIMIT_SWITCHING
 
@@ -612,7 +612,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  * math seems to be saying it should be 400 steps/mm 
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 20, 20, 100, 70, 28}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 20, 20, 100, 70, 70}
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -627,7 +627,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 400, 400, 100, 10000, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 400, 400, 100, 3000, 3000 }
 
 /**
  * Default Acceleration (change/s) change = mm/s
@@ -850,7 +850,7 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR false
-#define INVERT_Y_DIR true
+#define INVERT_Y_DIR false
 #define INVERT_Z_DIR true
 
 // @section extruder
@@ -880,8 +880,8 @@
 // @section machine
 
 // The size of the print bed changed
-#define X_BED_SIZE 270
-#define Y_BED_SIZE 285
+#define X_BED_SIZE 210
+#define Y_BED_SIZE 275
 
 // Travel limits (mm) after homing, corresponding to endstop positions. changed
 #define X_MIN_POS 0
@@ -889,7 +889,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 255 //this needs to be changed
+#define Z_MAX_POS 240 //255 //this needs to be changed
 
 /**
  * Software Endstops
@@ -1075,7 +1075,7 @@
   //=================================== Mesh ==================================
   //===========================================================================
 
-  #define MESH_INSET 20          // Set Mesh bounds as an inset region of the bed
+  #define MESH_INSET 10          // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X 3    // Don't use more than 7 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
@@ -1130,7 +1130,7 @@
 
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
-#define MANUAL_X_HOME_POS -40
+#define MANUAL_X_HOME_POS -90
 //#define MANUAL_Y_HOME_POS 0
 //#define MANUAL_Z_HOME_POS 0
 
@@ -1258,11 +1258,11 @@
 
 // Preheat Constants
 #define PREHEAT_1_TEMP_HOTEND 220
-#define PREHEAT_1_TEMP_BED     0
+#define PREHEAT_1_TEMP_BED     60
 #define PREHEAT_1_FAN_SPEED    255 // Value from 0 to 255
 
 #define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    0
+#define PREHEAT_2_TEMP_BED    60
 #define PREHEAT_2_FAN_SPEED   255 // Value from 0 to 255
 
 /**
@@ -1812,7 +1812,7 @@
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
-//#define FAN_SOFT_PWM
+#define FAN_SOFT_PWM
 
 // Incrementing this by 1 will double the software PWM frequency,
 // affecting heaters, and the fan if FAN_SOFT_PWM is enabled.
